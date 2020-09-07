@@ -107,7 +107,8 @@ def index():
 href="https://glitch.com/~sketch-2020-06flat">sketch-2020-09-08flat</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://abav.lugaralgum.com">Alexandre B A Villares</a> licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0 <img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" /><img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
 """
   return f"""
-  <html><head><title>sketch_2020-09-06flat by Alexandre B A Villares<title></head><body>
+  <html><head><title>sketch_2020-09-06flat by Alexandre B A Villares</title></head>
+  <body>
   <form action="" method="GET">
   <font face="Source Code Pro, monospace">
   <label for="seed">seed </label>
