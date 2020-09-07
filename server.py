@@ -1,5 +1,5 @@
 """
-Yeah I know, this is calles sketch_2020-09-06flat but the URL is missing the -09
+Yeah I know, this is called sketch_2020-09-06flat but the URL is missing the -09
 
 The base for this "glitch" is a fork of (@aparrish) Allison Parrish's amazing example using Flat + Bezmerizing to draw SVG.
 Lot's of help from Marco Macarena adding the HTML inputs!
