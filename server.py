@@ -89,10 +89,9 @@ def svg():
   treat_request(request)
   draw()
   svg = page.svg().decode("utf-8")
-  license = """generated with https://glitch.com/~sketch-2020-06flat by Alexandre B A Villares
-  licensed under CC-BY-NC-SA 4.0"""
+  license = """generated with https://glitch.com/~sketch-2020-06flat by Alexandre B A Villares\nlicensed under CC-BY-NC-SA 4.0"""
   
-  return svg.replace("Untitled", f"{license}") 
+  return svg.replace("Untitled", license) 
 
 @app.route('/', methods=['GET'])
 def index():
