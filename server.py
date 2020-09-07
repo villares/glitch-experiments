@@ -3,8 +3,7 @@ Yeah I know, this is called sketch_2020-09-06flat but the URL is missing the -09
 
 The base for this "glitch" is a fork of (@aparrish) Allison Parrish's amazing example using Flat + Bezmerizing to draw SVG.
 Lot's of help from Marco Macarena adding the HTML inputs!
-This version uses a single flask route, generates and inserts the SVG inside the HTML it serves
-The other route is optional, to serve a single SVG
+This version uses a single flask route, generates and inserts the SVG inside the HTML it serves. The other route is optional, to serve a single SVG
 """
 
 from flask import Flask, send_file, request
@@ -34,7 +33,7 @@ def draw():
     background(235, 235, 220)
     
     print(f"seed: {seed_value}")
-    random.seed(seed_value)   # doesn't work! I wish it would work here!
+    random.seed(seed_value)
     grid(width / 2, height / 2, (colunas, 4), 150 * sf, ensamble, 5)
 
     
@@ -89,7 +88,7 @@ def svg():
   treat_request(request)
   draw()
   svg = page.svg().decode("utf-8")
-  license = """generated with https://glitch.com/~sketch-2020-06flat by Alexandre B A Villares\nlicensed under CC-BY-NC-SA 4.0"""
+  license = """generated with https://glitch.com/~sketch-2020-06flat by Alexandre B A Villares\nlicensed under CC-BY-NC-SA 4.0 - donate at gumroad.com/villares"""
   
   return svg.replace("Untitled", license) 
 
@@ -103,7 +102,7 @@ def index():
       svg_link = svg_link.replace(seed_request, str(seed_value))
 
   license = """ generated with <a rel="cc:attributionURL" property="dct:title"
-href="https://glitch.com/~sketch-2020-06flat">sketch-2020-09-08flat</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://abav.lugaralgum.com">Alexandre B A Villares</a> licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0 <img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" /><img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a></p>
+href="https://glitch.com/~sketch-2020-06flat">sketch-2020-09-08flat</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://abav.lugaralgum.com">Alexandre B A Villares</a> licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0 <img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" /><img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a> (<a href="https://gumroad.com/villares">keep this online, donate</a>)</p>
 """
   return f"""
   <html><head><title>sketch_2020-09-06flat by Alexandre B A Villares</title></head>
@@ -117,7 +116,7 @@ href="https://glitch.com/~sketch-2020-06flat">sketch-2020-09-08flat</a> by <a re
   <input id="colunas" name="colunas" value="{colunas_value}" />
   <label for="sf"> scale ({sf_value}) </label>
   <input id="sf" type="range" name="sf" min="{sf_min}" max="{sf_max}" value="{sf_value}" />
-  <input type="submit" name="redraw" value="redraw"> (<a href="https://gumroad.com/villares">keep this online, donate</a>)
+  <input type="submit" name="redraw" value="redraw">
   <br /><a href={svg_link}>sketch.svg</a> {license}
   </font>
   </form>
