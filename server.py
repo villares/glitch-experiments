@@ -6,6 +6,8 @@ Lot's of help from Marco Macarena adding the HTML inputs!
 This version uses a single flask route, generates and inserts the SVG inside the HTML it serves. The other route is optional, to serve a single SVG
 """
 
+svg_license = """generated with https://glitch.com/~sketch-2020-06flat by Alexandre B A Villares\nlicensed under CC-BY-SA 4.0 - donate at gumroad.com/villares"""
+
 from flask import Flask, send_file, request
 import random
 
@@ -88,9 +90,7 @@ def svg():
   treat_request(request)
   draw()
   svg = page.svg().decode("utf-8")
-  license = """generated with https://glitch.com/~sketch-2020-06flat by Alexandre B A Villares\nlicensed under CC-BY-NC-SA 4.0 - donate at gumroad.com/villares"""
-  
-  return svg.replace("Untitled", license) 
+  return svg.replace("Untitled", svg_license) 
 
 @app.route('/', methods=['GET'])
 def index():
@@ -102,7 +102,7 @@ def index():
       svg_link = svg_link.replace(seed_request, str(seed_value))
 
   license = """ generated with <a rel="cc:attributionURL" property="dct:title"
-href="https://glitch.com/~sketch-2020-06flat">sketch-2020-09-08flat</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://abav.lugaralgum.com">Alexandre B A Villares</a> licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0 <img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" /><img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a> (<a href="https://gumroad.com/villares">keep this online, donate</a>)</p>
+href="https://glitch.com/~sketch-2020-06flat">sketch-2020-09-08flat</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://abav.lugaralgum.com">Alexandre B A Villares</a> licensed under <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0">CC BY-SA 4.0 <img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" /><img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" /><img style="height:12px!important;margin-left:3px;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" /></a> (<a href="https://gumroad.com/villares">keep this online, donate</a>)</p>
 """
   return f"""
   <html><head><title>sketch_2020-09-06flat by Alexandre B A Villares</title></head>
@@ -121,7 +121,7 @@ href="https://glitch.com/~sketch-2020-06flat">sketch-2020-09-08flat</a> by <a re
   </font>
   </form>
   <p style="font-family:Source Code Pro, monospace" xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="license-text">
-  {page.svg().decode("utf-8")}
+  {page.svg().decode("utf-8").replace("Untitled", svg_license)}
   </body></html>"""  
 
 
