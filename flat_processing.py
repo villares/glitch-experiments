@@ -35,7 +35,7 @@ def stroke(r, *args):
 
 def apply_attrs(fig):
     fig = fig.stroke(current_stroke) if current_stroke else fig.nostroke()
-    fig = fig.fill(current_fill) if current_fill else fig.noFill()
+    fig = fig.fill(current_fill) if current_fill else fig.nofill()
     return fig
  
 def color_from_args(r, args):
